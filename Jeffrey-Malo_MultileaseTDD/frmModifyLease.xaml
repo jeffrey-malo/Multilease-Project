@@ -1,0 +1,38 @@
+﻿<Window x:Class="Jeffrey_Malo_MultileaseTDD.frmModifyLease"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jeffrey_Malo_MultileaseTDD"
+        mc:Ignorable="d"
+        Title="Modify/Find Lease - MultiLease Management System" Height="400" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="190" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label HorizontalContentAlignment="Right" Grid.Column="1" Content="LeaseID :" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="110"/>
+        <Label HorizontalContentAlignment="Right" Grid.Column="1" Content="First Name :" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="110"/>
+        <Label HorizontalContentAlignment="Right" Grid.Column="1" Content="Last Name :" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="110"/>
+        <Label HorizontalContentAlignment="Right" Grid.Column="1" Content="VIN :" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="110"/>
+        <ComboBox x:Name="leaseIdList" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Height="26" Margin="0,79,0,0" Grid.RowSpan="2" SelectionChanged="leaseIdList_SelectionChanged" />
+        <TextBox x:Name="txtFirstName" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="26" Grid.Row="1" Margin="0,39,0,0" Grid.RowSpan="2" TextChanged="Validate_Info"/>
+        <TextBox x:Name="txtLastName" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="26" Grid.Row="2" Margin="0,39,0,0" Grid.RowSpan="2" TextChanged="Validate_Info"/>
+        <TextBox x:Name="txtVinCode" IsReadOnly="True" VerticalContentAlignment="Center" Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="26" Grid.Row="4" />
+        <Button x:Name="findLeaseBtn" Grid.Column="1" Content="FIND" Margin="43,8,0,2" Grid.Row="5" Click="findLeaseBtn_Click" IsEnabled="False"/>
+        <Button x:Name="modifyLeaseBtn" Grid.Column="2" Content="MODIFY" Margin="28,8,85,2" Grid.Row="5" Click="modifyLeaseBtn_Click" IsEnabled="False"/>
+        <Button x:Name="cancelModBtn" Grid.Column="1" Content="CANCEL" Margin="93,10,140,0" Grid.Row="6" Grid.ColumnSpan="2" Click="cancelModBtn_Click"/>
+    </Grid>
+</Window>

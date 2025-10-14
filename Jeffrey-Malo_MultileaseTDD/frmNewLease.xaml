@@ -1,0 +1,47 @@
+﻿<Window x:Class="Jeffrey_Malo_MultileaseTDD.frmNewLease"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jeffrey_Malo_MultileaseTDD"
+        mc:Ignorable="d"
+        Title="New Lease - MultiLease Management System" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Activated="frmNewLease_Activated">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Customer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="180" Grid.Column="1" Height="25" Grid.Row="1"/>
+        <TextBox x:Name="txtCustomerName" Text="{Binding FullName, Mode=OneWay}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="28" Grid.Column="2" IsReadOnly="True" Margin="0,64,0,0" Grid.RowSpan="2" TextChanged="Validate_Info" />
+        <Label Content="VIN:" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="180" Grid.Column="1" Height="27" Grid.Row="2"/>
+        <ComboBox x:Name="vinNumberList" HorizontalAlignment="Left" Margin="0,0,0,18" Width="180" Grid.Column="2" Grid.Row="2" SelectionChanged="Validate_Selection"/>
+        <Label Content="Lease Begin Date:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="180" Grid.Column="1" Height="28" Grid.Row="2" Grid.RowSpan="2"/>
+        <Label Content="First Payment Date:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Grid.Column="1" Grid.Row="4"/>
+        <Button x:Name="customerInfoBtn" Content="Add Customer" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="27" Grid.Column="3" Click="customerInfoBtn_Click" Margin="0,64,0,0" Grid.RowSpan="2"/>
+        <DatePicker x:Name="beginDate" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="136" Grid.Column="2" Height="29" Grid.Row="2" Grid.RowSpan="2" SelectedDateChanged="Validate_DateSelection"/>
+        <DatePicker x:Name="firstPaymentDate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Grid.Column="2" Grid.Row="4" Height="26" SelectedDateChanged="Validate_DateSelection"/>
+        <Label Content="Monthly Payment:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Width="180" Grid.Column="1" Grid.Row="5"/>
+        <Label Content="Number of Payments:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Grid.Column="1" Grid.Row="6"/>
+        <TextBox x:Name="txtMonthlyAmount" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="136" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2" Height="28" TextChanged="Validate_Info"/>
+        <ComboBox x:Name="numberOfPaymentsList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Height="28" Grid.Column="2" Grid.Row="6" SelectionChanged="Validate_Selection"/>
+        <Label Content="Lease Terms:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.Row="6" Margin="0,45,0,0" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtLeaseTermsID" Text="{Binding TermsID, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="136" Grid.Column="2" Grid.Row="6" Grid.RowSpan="2" Height="28" TextChanged="Validate_Info" IsReadOnly="True"/>
+        <Button x:Name="leaseTermsBtn" Content="_Add Lease Terms" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="3" Grid.RowSpan="2" Grid.Row="6" Click="leaseTermsBtn_Click"/>
+        <Button x:Name="cancelBtn" Content="_CANCEL" HorizontalAlignment="Left" Margin="56,24,0,0" VerticalAlignment="Top" Width="124" Height="26" Grid.Column="1" Grid.Row="8" Click="cancelBtn_Click"/>
+        <Button x:Name="saveBtn" Content="_SAVE" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="2" Grid.Row="8" IsEnabled="False" Click="saveBtn_Click"/>
+    </Grid>
+</Window>
